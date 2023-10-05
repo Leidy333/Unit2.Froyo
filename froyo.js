@@ -8,5 +8,6 @@ const flavorOrdered = order.split(",");
 const flavors = {};
 // use forEach loop to fill object
     flavorOrdered.forEach((val) => (flavors[val] = (flavors[val] || 0)+1));
-
-console.table(flavors)
+    
+//print table 
+console.table(flavors);
