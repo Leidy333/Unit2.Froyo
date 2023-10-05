@@ -10,8 +10,9 @@ const flavObj = flavorsArray.reduce((accumulator, value, index) => {
     return {...accumulator, [index]: value};
 }, {});
 
-console.table(flavObj);
+// console.table(flavObj);
 
+// Count Occurences of Each unique Flavor
 const count = {};
 
 for (let ele of flavorsArray) {
