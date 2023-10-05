@@ -22,7 +22,7 @@ const userInputString = prompt(
 
 // console.log(userInputString);
 
-function buildFlavorObj(flavorString){
+function buildOrderObj(flavorString){
 
     let flavorArray = flavorString.split(",");
 
@@ -50,44 +50,42 @@ function buildFlavorObj(flavorString){
 
 };
 
-buildFlavorObj(userInputString);
+let flavorObj = buildOrderObj(userInputString);
 
-function displayFlavors(flavorObj){
+function displayFroyos(orderObj){
     //turn keys into an array with Object.keys()
     //turn values into an array with Object.values()
 
-    let flavorArray = Object.keys(flavorObj);
+    let flavorArray = Object.keys(orderObj);
     // console.log(flavorArray);
 
-    let quantityArray = Object.values(flavorObj);
+    let quantityArray = Object.values(orderObj);
     // console.log(quantityArray);
 
     let froyoTable = document.getElementById("froyo-table");
 
+
+    let froyoPicNames = ["banana", "blueberry", "cherry", "chocolate", "coffee", "cookies", "kiwi", "lemon", "mango", "pistachio", "raspberry", "strawberry", "vanilla", "velvet"];
+    let froyoPicName = "";
+
     for(let i = 0; i < flavorArray.length; i++){
         let tr = document.createElement("tr");
-        
         froyoTable.appendChild(tr);
-        // let td = `<td class="flavors">${flavorArray[i]}</td>`
-        // let flavor = document.createTextNode(`<td class="flavors">${flavorArray[i]}</td>`);
-        tr.innerHTML = "<td class='flavors'>" + flavorArray[i] + "</td><td class='quantity'>" + quantityArray[i] + "</td><td  class='picture'><img style='padding:1px; width:170px; height:170px' src='./images/froyos/lemon.png'></td>"; 
-        // let flavor = document.createTextNode(`<td class="flavors">${flavorArray[i]}</td>`);
-        // tr.innerHTML = "<td class='quantity'>" + quantityArray[i] + "</td>"; 
-        // tr.innerHTML = "<td class='picture'><img src='images/froyos/jevar._lemon_frozen_yogurt_photo_d6b112e2-2418-498e-a908-82980f0ee3e2'></td>"; 
+        
+
+        if(froyoPicNames.indexOf(flavorArray[i].toLowerCase()) != -1){
+            froyoPicName = flavorArray[i].toLowerCase();
+        } else {
+            froyoPicName= "mystery";
+        }
+
+        let froyoTableDataString = `<td class='flavors'> ${flavorArray[i]}</td><td class='quantity'> ${quantityArray[i]} </td><td class='picture'><img style='padding:1px; width:170px; height:170px' src='./images/froyos/${froyoPicName}.png'></td>`
+        tr.innerHTML = froyoTableDataString;
+        // tr.innerHTML = "<td class='flavors'>" + flavorArray[i] + "</td><td class='quantity'>" + quantityArray[i] + "</td><td  class='picture'><img style='padding:1px; width:170px; height:170px' src='./images/froyos/lemon.png'></td>"; 
     }
-
-    // for(let i = 0; i < quantityArray.length; i++){
-    //     let tr2 = document.createElement("tr");
-        
-    //     froyoTable.appendChild(tr2);
-    //     // let td = `<td class="flavors">${flavorArray[i]}</td>`
-        
-    // }
-
-
 };
 
-displayFlavors({strawberry: 1, banana: 2, vanilla: 3})
+displayFroyos(flavorObj);
 
 
   

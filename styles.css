@@ -2,7 +2,7 @@ body {
     background-image: url("images/5508345.jpg");
     /* background-color: aliceblue; */
     background-size: 600px 400px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 56px;
     text-align: center;/* this centers the table horizontally */
 }
