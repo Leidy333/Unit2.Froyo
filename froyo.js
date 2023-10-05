@@ -17,7 +17,7 @@
 // Prompt the user for a list of flavors separated by commas.
 const userInputString = prompt(
     "Please enter flavors you want to order separated by commas.",
-    "For example: vanilla, kiwi, lemon"
+    "For example: vanilla, kiwi, kiwi, lemon"
   );
 
 // console.log(userInputString);
